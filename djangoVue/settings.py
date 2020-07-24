@@ -23,7 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'yxyg*x6bv*qpztnj!epu#l&467u1&@k^y@=%x2i=%b9o%!gp!s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
 DEBUG = True
 
@@ -42,13 +41,15 @@ INSTALLED_APPS = [
     'djangoVueApp.apps.DjangovueappConfig',
     'rest_framework',
     'rest_framework.authtoken',
-    'djoser'
+    'djoser',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -149,3 +150,4 @@ DJOSER = {
       'user': 'djangoVueApp.serializers.CreateUserSerializer',
   },
 }
+CORS_ORIGIN_ALLOW_ALL = True

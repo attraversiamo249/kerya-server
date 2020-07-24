@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import House,User
 from .serializers import houseSerializers
-from.forms import CreateUserForm
 # Create your views here.
 
 @api_view(['GET'])

@@ -6,12 +6,12 @@ from .models import House,User, pickeddatesClient
 class CreateUserSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         model = User
-        fields =('id','email','username','password','first_name','last_name','phone','age')
+        fields =('id','email','username','password','first_name','last_name','phone')
 
 class houseSerializers(serializers.ModelSerializer):
     class Meta:
         model = House
-        fields ='__all__'
+        fields ='__all__'  
 
 
 class pickeddatesSerializers(serializers.ModelSerializer):
