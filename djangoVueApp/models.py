@@ -26,9 +26,9 @@ class House(models.Model):
     def __str__(self):
         return self.title
 
-class pickeddatesClient(models.Model):
-    client = models.ForeignKey(User,on_delete=models.CASCADE)
-    House = models.ForeignKey(House,on_delete=models.CASCADE)
-    pickedDatesPerHouse = JSONField()
+class Dates(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    house = models.ForeignKey(House,on_delete=models.CASCADE)
+    dates = JSONField()
 
 

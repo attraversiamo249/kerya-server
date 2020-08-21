@@ -1,6 +1,6 @@
 from djoser.serializers import UserCreateSerializer, UserSerializer
 from rest_framework import serializers
-from .models import House,User, pickeddatesClient
+from .models import House, User, Dates
 
 
 class CreateUserSerializer(UserCreateSerializer):
@@ -11,12 +11,12 @@ class CreateUserSerializer(UserCreateSerializer):
 class houseSerializers(serializers.ModelSerializer):
     class Meta:
         model = House
-        fields ='__all__'  
+        fields =('id','user','title','city','type','address','rooms','beds','price')  
 
 
-class pickeddatesSerializers(serializers.ModelSerializer):
+class datesSerializers(serializers.ModelSerializer):
     class Meta:
-        model = pickeddatesClient
+        model = Dates
         fields ='__all__'
 
 

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'corsheaders',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -82,9 +83,13 @@ WSGI_APPLICATION = 'djangoVue.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hichem',
+        'USER': 'hichem',
+        'PASSWORD': 'hitler22',
+        'HOST': 'localhost',
+        'PORT': '5432'
+            }
 }
 
 
@@ -149,5 +154,10 @@ DJOSER = {
       'user_create':'djangoVueApp.serializers.CreateUserSerializer',
       'user': 'djangoVueApp.serializers.CreateUserSerializer',
   },
+  'PERMISSIONS':{
+          'user': ['rest_framework.permissions.AllowAny'],
+
+  }
+
 }
 CORS_ORIGIN_ALLOW_ALL = True

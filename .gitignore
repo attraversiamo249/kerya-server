@@ -1,1 +1,9 @@
 *.pyc
+djangoVue/__pycache__/settings.cpython-37.pyc
+djangoVue/__pycache__/settings.cpython-37.pyc
+djangoVue/__pycache__/settings.cpython-38.pyc
+djangoVueApp/__pycache__/forms.cpython-38.pyc
+djangoVueApp/__pycache__/models.cpython-38.pyc
+djangoVueApp/__pycache__/serializers.cpython-38.pyc
+djangoVueApp/__pycache__/urls.cpython-38.pyc
+djangoVueApp/__pycache__/views.cpython-38.pyc
