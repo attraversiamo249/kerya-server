@@ -21,8 +21,15 @@ class House(models.Model):
     address = models.CharField(max_length=50)
     rooms = models.IntegerField()
     beds = models.IntegerField()
-    price = models.IntegerField() 
-   
+    price = models.IntegerField()
+    description = models.TextField()
+    image1 = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
+    image4 = models.ImageField(null=True, blank=True)
+    image5 = models.ImageField(null=True, blank=True)
+
+
     def __str__(self):
         return self.title
 
@@ -30,5 +37,6 @@ class Dates(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     house = models.ForeignKey(House,on_delete=models.CASCADE)
     dates = JSONField()
+
 
 

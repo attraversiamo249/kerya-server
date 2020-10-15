@@ -3,13 +3,31 @@ from django.contrib.auth.forms import UserCreationForm
 from rest_framework import viewsets,generics
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,action
 from .models import House,User,Dates
 from .serializers import houseSerializers,datesSerializers
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters import rest_framework as filters
 from .filters import HouseFilter
+from rest_framework.parsers import FileUploadParser
+from rest_framework.views import APIView
+from rest_framework import status
+from .serializers import FileSerializer
 # Create your views here.
+
+@action(detail=True, methods=['patch'])
+class FileUploadView(APIView):
+    parser_class = (FileUploadParser,)
+
+    def post(self, request, *args, **kwargs):
+
+      file_serializer = FileSerializer(data=request.data)
+
+      if file_serializer.is_valid():
+          file_serializer.save()
+          return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+      else:
+          return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def apiOverview(request):
@@ -55,32 +73,33 @@ def houseCreate(request):
 
         return Response(serializer.data)  
                             
-   #update
-@api_view(['POST'])
-def houseUpdate(request,pk):
-        house = House.objects.get(id=pk)
-        serializer = houseSerializers(instance=house,data=request.data)
-        if serializer.is_valid():
-                serializer.save()
-
-        return Response(serializer.data)  
+        #update
+class houseUpdate(generics.UpdateAPIView):
+        queryset = House.objects.all()  
+        serializer_class = houseSerializers     
 
         #delete
-@api_view(['DELETE'])
-def houseDelete(request,pk):
-        house = House.objects.get(id=pk)
-        house.delete()
-        return Response("sayi m7inah") 
+class houseDelete(generics.DestroyAPIView):
+        queryset = House.objects.all()  
+        serializer_class = houseSerializers     
 
-class datesList(generics.ListAPIView):
+            #dates
+class dates(generics.ListCreateAPIView):
+        queryset = Dates.objects.all()  
+        serializer_class = datesSerializers     
+
+class datesUpdate(generics.UpdateAPIView):
         queryset = Dates.objects.all()  
         serializer_class = datesSerializers   
 
-@api_view(['POST'])
-def addDates(request):
-        serializer = datesSerializers(data=request.data)
-        if serializer.is_valid():
-                serializer.save()
+class datesDelete(generics.DestroyAPIView):
+        queryset = Dates.objects.all()  
+        serializer_class = datesSerializers       
 
-        return Response(serializer.data)  
 
+         #user_houses
+@api_view(['GET'])      
+def datesHouse(request, hid):
+        dates = Dates.objects.filter(house=hid)
+        serializer = datesSerializers(dates, many=True)
+        return Response(serializer.data)
