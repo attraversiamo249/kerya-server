@@ -1,2 +1,1 @@
-web: gunicorn kerya.wsgi 
-web: gunicorn kerya:app
+web: gunicorn djangoVueApp.wsgi 
