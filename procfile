@@ -1,1 +1,1 @@
-web: gunicorn kerya-server.wsgi 
+web: gunicorn kerya.wsgi 
