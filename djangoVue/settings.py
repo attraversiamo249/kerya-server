@@ -85,13 +85,17 @@ WSGI_APPLICATION = 'djangoVue.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd1s09u9ofcfqje',
-        'USER': 'yffyjbikofzzpq',
-        'PASSWORD': 'a5ea872224c3d3c809f737aca61588c9212c2e06bdd0ac8039e72ead8ec4f8c3',
-        'HOST': 'ec2-54-75-229-28.eu-west-1.compute.amazonaws.com',
+        'NAME': 'kerya',
+        
+        """'USER': 'hichem',"""
+       """ 'PASSWORD': 'hitler22',"""
+      """  'HOST': 'localhost',"""
         'PORT': '5432'
-            }
+        }
 }
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
