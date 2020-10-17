@@ -86,7 +86,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'kerya',
-        }
+        'USER': 'hichem',
+        'PASSWORD': 'hitler22',
+        'HOST': 'localhost',
+        'PORT': '5432'
+            }
 }
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
