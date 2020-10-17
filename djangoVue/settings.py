@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'djangoVue.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'kerya',
+        'NAME': 'hichem1',
         'USER': 'hichem',
         'PASSWORD': 'hitler22',
         'HOST': 'localhost',
