@@ -9,25 +9,10 @@ from .serializers import houseSerializers,datesSerializers
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters import rest_framework as filters
 from .filters import HouseFilter
-from rest_framework.parsers import FileUploadParser
 from rest_framework.views import APIView
 from rest_framework import status
-from .serializers import FileSerializer
 # Create your views here.
 
-@action(detail=True, methods=['patch'])
-class FileUploadView(APIView):
-    parser_class = (FileUploadParser,)
-
-    def post(self, request, *args, **kwargs):
-
-      file_serializer = FileSerializer(data=request.data)
-
-      if file_serializer.is_valid():
-          file_serializer.save()
-          return Response(file_serializer.data, status=status.HTTP_201_CREATED)
-      else:
-          return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def apiOverview(request):

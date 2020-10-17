@@ -12,7 +12,6 @@ urlpatterns = [
     path('houses-list/', views.housesList.as_view(), name="houses_list"),
     path('houses-list/<str:uid>/', views.userHouses, name="houses_list"),
     path('house-create/', views.houseCreate, name="house_create"),
-    path('house-images/', views.FileUploadView.as_view(), name="house_images"),
     path('house-update/<str:pk>/', views.houseUpdate.as_view(), name="house_update"),
     path('house-details/<str:pk>/', views.houseDetails, name="house_detail"),
     path('house-delete/<str:pk>/', views.houseDelete.as_view(), name="house_delete"),
