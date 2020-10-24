@@ -6,9 +6,9 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('', include('djoser.urls')),
-    path('', include('djoser.urls.authtoken')),
-    path('overview/', views.apiOverview, name="api_overview"),
+    path('users/', include('djoser.urls')),
+    path('users/', include('djoser.urls.authtoken')),
+    path('', views.apiOverview, name="api_overview"),
     path('houses-list/', views.housesList.as_view(), name="houses_list"),
     path('houses-list/<str:uid>/', views.userHouses, name="houses_list"),
     path('house-create/', views.houseCreate, name="house_create"),
