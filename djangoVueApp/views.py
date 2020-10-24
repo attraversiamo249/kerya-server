@@ -17,10 +17,14 @@ from rest_framework import status
 @api_view(['GET'])
 def apiOverview(request):
         api_urls={
-                'Houses list':'/houses_list',    
-                'House create':'/house_create',
-                'House details':'/house_details/<str:pk>/',
-                'House update':'/house_update/<str:pk>/' 
+                'users':'kerya.herokuapp.com/api/users',    
+                'houses list':'kerya.herokuapp.com/api/houses-list',    
+                'House create':'kerya.herokuapp.com/api/house-create',
+                'House details':'kerya.herokuapp.com/api/house-details',
+                'House update':'kerya.herokuapp.com/api/houses-update',
+                'dates create':'kerya.herokuapp.com/api/dates',
+                'dates house':'kerya.herokuapp.com/api/dates-house'
+
         }
         return Response(api_urls)
         #list
