@@ -6,6 +6,7 @@ class HouseFilter(filters.FilterSet):
     max_rooms = filters.NumberFilter(field_name="rooms", lookup_expr='lte')
     min_price = filters.NumberFilter(field_name="price", lookup_expr='gte')
     max_price = filters.NumberFilter(field_name="price", lookup_expr='lte')
+    type = filters.AllValuesMultipleFilter(field_name="type",lookup_expr="exact")
 
     class Meta: 
         model = House
