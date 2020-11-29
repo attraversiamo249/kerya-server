@@ -3,12 +3,13 @@ from .models import House
 
 class HouseFilter(filters.FilterSet):
     ChoicesType=(
-        ("app","Appartement"),
-        ("villa","Villa")
+        ("Appartement","Appartement"),
+        ("Villa","Villa")
     )
     ChoicesRooms=(
-        ("app","Appartement"),
-        ("villa","Villa")
+        ("2","two")
+        ("3","three")
+        ("4","+four")
     )
 
     type = filters.MultipleChoiceFilter(field_name="type",lookup_expr="exact",required=False,choices=ChoicesType)
