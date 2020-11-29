@@ -4,7 +4,9 @@ from .models import House
 class HouseFilter(filters.FilterSet):
     ChoicesType=(
         ("Appartement","Appartement"),
-        ("Villa","Villa")
+        ("Villa","Villa"),
+        ("Studio","Studio")
+
     )
     ChoicesRooms=(
         ("2","two"),
