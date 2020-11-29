@@ -14,7 +14,7 @@ class HouseFilter(filters.FilterSet):
 
     type = filters.MultipleChoiceFilter(field_name="type",lookup_expr="exact",required=False,choices=ChoicesType)
     max_price = filters.NumberFilter(field_name="price",lookup_expr="lte",required=False)
-    rooms = filters.MultipleChoiceFilter(field_name="type",lookup_expr="exact",required=False,choices=ChoicesRooms)
+    rooms = filters.MultipleChoiceFilter(field_name="rooms",lookup_expr="exact",required=False,choices=ChoicesRooms)
 
     class Meta: 
         model = House
