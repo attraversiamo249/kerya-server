@@ -2,9 +2,9 @@ from django_filters import rest_framework as filters
 from .models import House
 
 class HouseFilter(filters.FilterSet):
-    type = filters.AllValuesMultipleFilter(field_name="type",lookup_expr="exact")
+    type = filters.MultipleChoiceFilter(field_name="type",lookup_expr="exact")
     max_price = filters.NumberFilter(field_name="price",lookup_expr="lte")
-    rooms = filters.AllValuesMultipleFilter(field_name="type",lookup_expr="exact")
+    rooms = filters.MultipleChoiceFilter(field_name="type",lookup_expr="exact")
 
     class Meta: 
         model = House
