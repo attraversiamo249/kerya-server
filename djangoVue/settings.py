@@ -87,12 +87,6 @@ WSGI_APPLICATION = 'djangoVue.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hichem1',
-        'USER': 'hichem',
-        'PASSWORD': 'hitler22',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'OPTIONS': {'sslmode': 'disable'},
             }
 }
 import dj_database_url
