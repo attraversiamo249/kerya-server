@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'djangoVue.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
             }
 }
 import dj_database_url
