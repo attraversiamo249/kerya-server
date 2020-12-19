@@ -94,7 +94,6 @@ DATABASES = {
         'PORT': '5432'
             }
 }
-import django_heroku
 import dj_database_url
 django_heroku.settings(locals())
 
