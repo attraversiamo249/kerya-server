@@ -95,12 +95,8 @@ DATABASES = {
             }
 }
 import dj_database_url
-django_heroku.settings(locals())
-
-# override DATABASE_URL set by django_heroku because it forces SSL mode locally
-ssl_require = os.environ['ENV'] != 'development'
-locals()['DATABASES']['default'] = dj_database_url.config(
-    conn_max_age=django_heroku.MAX_CONN_AGE, ssl_require=ssl_require)
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -177,3 +173,4 @@ DJOSER = {
   }
 
 }
+django_heroku.settings(locals())
