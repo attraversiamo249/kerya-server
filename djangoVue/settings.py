@@ -91,7 +91,10 @@ DATABASES = {
         'USER': 'hichem',
         'PASSWORD': 'hitler22',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'disable'
+        }
             }
 }
 import dj_database_url
