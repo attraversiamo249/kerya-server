@@ -91,11 +91,12 @@ DATABASES = {
         'USER': 'hichem',
         'PASSWORD': 'hitler22',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '5432',
+        'OPTIONS': {'sslmode': 'disable'},
             }
 }
 import dj_database_url
-db_from_env = dj_database_url.config(ssl_require=False)
+db_from_env = dj_database_url.config(conn_max_age=0,ssl_require=False)
 DATABASES['default'].update(db_from_env)
 
 
