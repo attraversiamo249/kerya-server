@@ -2,15 +2,16 @@ from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from rest_framework import viewsets,generics
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.response import Response
 from rest_framework.decorators import api_view,action
 from .models import House,User,Dates
-from .serializers import houseSerializers,datesSerializers
+from .serializers import houseSerializers,datesSerializers, GoogleSocialAuthSerializer, TwitterAuthSerializer, FacebookSocialAuthSerializer
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters import rest_framework as filters
 from .filters import HouseFilter
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.generics import GenericAPIView
 # Create your views here.
 
 
@@ -92,3 +93,43 @@ def datesHouse(request, hid):
         dates = Dates.objects.filter(house=hid)
         serializer = datesSerializers(dates, many=True)
         return Response(serializer.data)
+
+
+
+  #social 
+class GoogleSocialAuthView(GenericAPIView):
+
+    serializer_class = GoogleSocialAuthSerializer
+
+    def post(self, request):
+        """
+
+        POST with "auth_token"
+
+        Send an idtoken as from google to get user information
+
+        """
+
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        data = ((serializer.validated_data)['auth_token'])
+        return Response(data, status=status.HTTP_200_OK)
+
+
+class FacebookSocialAuthView(GenericAPIView):
+
+    serializer_class = FacebookSocialAuthSerializer
+
+    def post(self, request):
+        """
+
+        POST with "auth_token"
+
+        Send an access token as from facebook to get user information
+
+        """
+
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        data = ((serializer.validated_data)['auth_token'])
+        return Response(data, status=status.HTTP_200_OK)

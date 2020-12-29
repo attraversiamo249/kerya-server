@@ -6,6 +6,9 @@ from django.conf import settings
 
 
 urlpatterns = [
+    path('google/', views.GoogleSocialAuthView.as_view()),
+    path('facebook/', views.FacebookSocialAuthView.as_view()),
+    path('twitter/', views.TwitterSocialAuthView.as_view()), 
     path('users/', include('djoser.urls')),
     path('users/', include('djoser.urls.authtoken')),
     path('', views.apiOverview, name="api_overview"),
