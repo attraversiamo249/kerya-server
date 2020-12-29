@@ -1,10 +1,7 @@
 from .models import House, User, Dates
 from djoser.serializers import UserCreateSerializer, UserSerializer
 from rest_framework import serializers
-from . import google, facebook, twitterhelper
-from .register import register_social_user
-import os
-from rest_framework.exceptions import AuthenticationFailed
+ 
 
 class CreateUserSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):

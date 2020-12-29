@@ -4,7 +4,7 @@ from rest_framework import viewsets,generics
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.decorators import api_view,action
 from .models import House,User,Dates
-from .serializers import houseSerializers,datesSerializers, GoogleSocialAuthSerializer, TwitterAuthSerializer, FacebookSocialAuthSerializer
+from .serializers import houseSerializers,datesSerializers
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters import rest_framework as filters
 from .filters import HouseFilter
