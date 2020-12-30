@@ -84,20 +84,9 @@ TEMPLATES = [
     },
 ]
 AUTHENTICATION_BACKENDS = (
-   'social_core.backends.facebook.FacebookAppOAuth2',
-   'social_core.backends.facebook.FacebookOAuth2',
-   'rest_framework_social_oauth2.backends.DjangoOAuth2',
+   'drf_social_oauth2.backends.DjangoOAuth2'
    'django.contrib.auth.backends.ModelBackend',
 )
-SOCIAL_AUTH_FACEBOOK_KEY = "453110369395561"
-SOCIAL_AUTH_FACEBOOK_SECRET = "ffd122b4c6a38081709424ef5eb77242"
-# Define SOCIAL_AUTH_FACEBOOK_SCOPE to get extra permissions from facebook. Email is not sent by default, to get it, you must request the email permission:
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-'fields': 'id, name, email' }
-FACEBOOK_EXTENDED_PERMISSIONS = ['email']
-SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'first_name', 'email']
-SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
 
 
 
