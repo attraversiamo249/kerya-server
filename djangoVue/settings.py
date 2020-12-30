@@ -83,23 +83,7 @@ TEMPLATES = [
         },
     },
 ]
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-       'rest_framework.authentication.BasicAuthentication',
-       'rest_framework.authentication.SessionAuthentication',
-       'rest_framework.authentication.TokenAuthentication',
-       'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
-       'drf_social_oauth2.authentication.SocialAuthentication',
 
-    ),
-    'DEFAULT_PERMISSIONS_CLASSES': (    
-        'rest_framework.permissions.IsAuthenticated',               
-    ),
-}
-AUTHENTICATION_BACKENDS = (
-   'drf_social_oauth2.backends.DjangoOAuth2'
-   'django.contrib.auth.backends.ModelBackend',
-)
 
 
 
@@ -163,10 +147,26 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework.authentication.BasicAuthentication',
+       'rest_framework.authentication.SessionAuthentication',
+       'rest_framework.authentication.TokenAuthentication',
+       'oauth2_provider.contrib.rest_framework.OAuth2Authentication',  # django-oauth-toolkit >= 1.0.0
+       'drf_social_oauth2.authentication.SocialAuthentication',
 
+    ),
+    'DEFAULT_PERMISSIONS_CLASSES': (    
+        'rest_framework.permissions.IsAuthenticated',               
+    ),
+}
 
 AUTH_USER_MODEL = 'djangoVueApp.User'
 
+AUTHENTICATION_BACKENDS = (
+    'drf_social_oauth2.backends.DjangoOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 DJOSER = {
   'LOGIN_FIELD': 'email',
