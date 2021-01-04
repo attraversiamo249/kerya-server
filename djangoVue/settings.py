@@ -164,9 +164,18 @@ REST_FRAMEWORK = {
 AUTH_USER_MODEL = 'djangoVueApp.User'
 
 AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookAppOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
     'drf_social_oauth2.backends.DjangoOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+SOCIAL_AUTH_FACEBOOK_KEY = '453110369395561'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'ffd122b4c6a38081709424ef5eb77242'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, name, email'
+}
 
 DJOSER = {
   'LOGIN_FIELD': 'email',
