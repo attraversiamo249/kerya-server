@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
-from rest_framework import viewsets,generics
+from rest_framework import viewsets, generics, status, permissions
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.decorators import api_view,action
 from .models import House,User,Dates
@@ -9,7 +9,6 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters import rest_framework as filters
 from .filters import HouseFilter
 from rest_framework.views import APIView
-from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 # Create your views here.
@@ -33,6 +32,7 @@ class housesList(generics.ListAPIView):
         queryset = House.objects.all()  
         serializer_class = houseSerializers     
         pagination_class = PageNumberPagination
+        permission_classes = [permissions.IsAuthenticated]
         filter_backends = (filters.DjangoFilterBackend,)
         filterset_class = HouseFilter
         

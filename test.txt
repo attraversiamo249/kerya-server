@@ -1,0 +1,1 @@
+curl -X POST -d "client_id=FzgqAO8BN0gosZ8ACC3CIEhj0thrVkHxIjRuh37t&client_secret=0PTnZIeDU2dPK11fzfGwyZXa3sYY471TZWaGOmlq6Su5lcO50OjB0hnMX3VYhtvqUyQCCZnJ2Lr65LxS1vfr7CQKwQdaFiKkS2391wqotIMxrU4ePANfwK4tojWznsrw&grant_type=password&username=hichemdahi57@gmail.com&password=attraver22" http://kerya.herokuapp.com/auth/token
