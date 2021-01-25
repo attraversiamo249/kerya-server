@@ -174,7 +174,7 @@ SOCIAL_AUTH_FACEBOOK_KEY = '453110369395561'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'ffd122b4c6a38081709424ef5eb77242'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-    'fields': 'id, name, email'
+    'fields': 'id, name, email, picture'
 }
 
 DJOSER = {
