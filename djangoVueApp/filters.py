@@ -15,8 +15,10 @@ class HouseFilter(filters.FilterSet):
         ("4","+four")
     )
 
+   
     type = filters.MultipleChoiceFilter(field_name="type",lookup_expr="exact",required=False,choices=ChoicesType)
-    price = filters.NumericRangeFilter(field_name="price",lookup_expr="contains")
+    rooms_gte= filters.NumberFilter(field_name="price",lookup_expr="gte",required=False)
+    rooms_lte= filters.NumberFilter(field_name="price",lookup_expr="lte",required=False)
     rooms = filters.MultipleChoiceFilter(field_name="rooms",lookup_expr="exact",required=False,choices=ChoicesRooms)
     rooms_gte= filters.NumberFilter(field_name="rooms",lookup_expr="gte",required=False)
     class Meta: 
