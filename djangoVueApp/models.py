@@ -16,11 +16,13 @@ class User(AbstractUser):
 
 class House(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    title = models.CharField(max_length=50)
     city = models.CharField(max_length=50) 
+    daira = models.CharField(max_length=50) 
     type = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
     rooms = models.IntegerField()
+    kitchen = models.BooleanField()
+    bathroom = models.BooleanField()
     beds = models.IntegerField()
     price = models.IntegerField()
     description = models.TextField()
@@ -31,8 +33,6 @@ class House(models.Model):
     image5 = models.ImageField(null=True, blank=True)
 
 
-    def __str__(self):
-        return self.title
 
 class Dates(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
