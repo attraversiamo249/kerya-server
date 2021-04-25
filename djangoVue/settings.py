@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
+#import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -94,7 +94,12 @@ WSGI_APPLICATION = 'djangoVue.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'hichem1',
+        'USER': 'hichem',
+        'PASSWORD': 'hitler22',
+        'HOST': 'localhost',
+        'PORT': '5432'
             }
 }
 import dj_database_url
@@ -190,4 +195,4 @@ DJOSER = {
   }
 
 }
-django_heroku.settings(locals(),databases=False)
+#django_heroku.settings(locals(),databases=False)
