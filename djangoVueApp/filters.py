@@ -12,7 +12,7 @@ class HouseFilter(filters.FilterSet):
     ChoicesRooms=(
         ("2","two"),
         ("3","three"),
-        ("4","+four")
+        ("4","four")
     )
 
    
@@ -20,7 +20,6 @@ class HouseFilter(filters.FilterSet):
     price_gte= filters.NumberFilter(field_name="price",lookup_expr="gte",required=False)
     price_lte= filters.NumberFilter(field_name="price",lookup_expr="lte",required=False)
     rooms = filters.MultipleChoiceFilter(field_name="rooms",lookup_expr="exact",required=False,choices=ChoicesRooms)
-    rooms_gte= filters.NumberFilter(field_name="rooms",lookup_expr="gte",required=False)
     class Meta: 
         model = House
-        fields = ['city','daira','type','address','rooms','price','rooms_gte']
+        fields = ['city','daira','type','address','rooms','price']
