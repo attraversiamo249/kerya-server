@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 from django_filters import rest_framework as filters
-from .models import House,User,Dates
+from .models import House, User, Dates
 from .serializers import houseSerializers,datesSerializers
 from .filters import HouseFilter
 
@@ -25,7 +25,6 @@ def apiOverview(request):
                 'House update':'kerya.herokuapp.com/api/houses-update',
                 'dates create':'kerya.herokuapp.com/api/dates',
                 'dates house':'kerya.herokuapp.com/api/dates-house'
-
         }
         return Response(api_urls)
         #list
