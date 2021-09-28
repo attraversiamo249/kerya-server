@@ -1,7 +1,7 @@
 # Kerya-server Restapi
 Built using Django framework 
 
-Packages and libraries used:
+Packages and modules used:
 - rest_framework
 - djoser
 - django_filters
