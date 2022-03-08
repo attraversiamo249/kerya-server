@@ -1,16 +1,12 @@
-from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
-from rest_framework import viewsets,generics, status
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.decorators import api_view,action
-from rest_framework.filters import SearchFilter, OrderingFilter
-from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.generics import GenericAPIView
 from django_filters import rest_framework as filters
-from .models import House, User, Dates
+from .models import House, Dates
 from .serializers import houseSerializers,datesSerializers
 from .filters import HouseFilter
+from rest_framework import generics
+
 
 # Create your views here.
 
